@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: "1БАС24001"
+  datasource:
+    url: ${DB_URL:jdbc:h2:mem:shelter_db;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH}
+    username: ${DB_USER:shelter_service}
+    password: ${DB_PASSWORD:shelter_pass}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    show-sql: false
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
