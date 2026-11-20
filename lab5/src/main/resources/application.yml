@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: "1БАС24001"
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/shelter_db}
+    username: ${DB_USER:shelter_service}
+    password: ${DB_PASSWORD:shelter_pass}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    show-sql: false
+  sql:
+    init:
+      mode: ${SQL_INIT_MODE:never}
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+jwt:
+  secret: ${JWT_SECRET:super-secret-shelter-jwt-key-for-hs256-signing-at-least-32-bytes}
+  access-expiration-seconds: ${JWT_ACCESS_EXPIRATION:900}
+  refresh-expiration-seconds: ${JWT_REFRESH_EXPIRATION:604800}
